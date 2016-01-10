@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Phase 4</title>
+
+		<link rel="stylesheet" type="text/css" href="../static/css/fizzbuzz.css">
+		<script src="../static/js/jquery-1.11.3.js"></script>
+		<script src="../static/js/fizzbuzz.js"></script>
+	</head>
+
+	<body>
+		<div>
+			<form class="phone-number">
+				<label for="phoneNumber" class="sr-only">Phone Number</label>
+				<input type="name" name="phoneNumber" id="phoneNumber" class="numberTextBox" placeholder="+X-XXX-XXX-XXXX" required autofocus>
+				<button id="dialButton" class="butn btn-lg btn-primary btn-block" type="button">Dial Number</button><br>
+				<label class="sr-only">Delay</label><br>
+				<input type="number" min="0" name="hourDelay" id="hourDelay" class="delayTextBox" value="0" required autofocus>
+				<label class="sr-only">Hours</label><br>
+				<input type="number" min="0" name="minDelay" id="minDelay" class="delayTextBox" value="0" required autofocus>
+				<label class="sr-only">Minutes</label><br>
+				<input type="number" min="0" name="secDelay" id="secDelay" class="delayTextBox" value="0" required autofocus>
+				<label class="sr-only">Seconds</label>
+			</form>
+		</div>
+		<div>
+			<label for="history" class="sr-only">History</label><br>
+			{% for entry in history %}
+				<div>
+					Date: {{entry[0]}} <br>
+					Delay: {{entry[1]}} <br>
+					Phone Number: {{entry[2]}} <br>
+					Fizz Buzz Number: {{entry[3]}} <br>
+					<button class="redialButton" date={{entry[0]}} type="button">Redial</button><br>
+				</div><br>
+			{% endfor %}
+		</div>
+	</body>
+</html>
